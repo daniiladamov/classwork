@@ -1,35 +1,16 @@
 spring:
   datasource:
-    url: jdbc:postgresql://db:5432/testdb #?useSSL=false
+    url: jdbc:postgresql://localhost:5432/testdb
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
-#    show-sql: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
   flyway:
     baseline-on-migrate: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-
-
-#
-#    ??? ????????????
-#spring:
-#  datasource:
-#    url: jdbc:h2:file:/data/demo
-#    username: sa
-#    password: password
-#    driverClassName: org.h2.Driver
-#  jpa:
-#    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-#    hibernate:
-#      ddl-auto: create
-#    show-sql: true
-#    generate-ddl: true
-#  h2:
-#    console:
-#      path: /h2
-#      enabled: true

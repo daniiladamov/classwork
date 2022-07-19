@@ -20,11 +20,17 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
             @JoinTable(
                     name = "friends",
                     joinColumns = @JoinColumn(name = "id"),
                     inverseJoinColumns = @JoinColumn(name = "friend_id")
             )
-    List<Pet> frendList;
+    List<Pet> friendList;
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName()+" "+name+" id#"+id;
+
+    }
 }

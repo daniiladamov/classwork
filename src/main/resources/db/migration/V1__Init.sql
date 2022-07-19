@@ -18,4 +18,4 @@ insert into pet(pet_type,"name",color) values ('cat','ulya','red')
 insert into pet(pet_type,"name",color,voice) values ('dog','gaw','black','aw'),('dog','pirate','blue','aaaaw'),
                                                     ('dog','spring','blue','AAAW');
 insert into pet(pet_type,"name","length") values ('snake','harry',100),('snake','ron',200),('snake','ger',300);
-insert into friends(id, friend_id) values (1,4),(4,1),(2,3),(3,2),(1,2),(2,1),(4,3),(3,4);
+insert into friends(id, friend_id) values (1,4),(4,1),(2,3),(3,2),(1,2),(2,1),(4,3),(3,4),(2,5),(5,2),(7,1),(1,7);

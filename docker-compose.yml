@@ -9,9 +9,9 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=testdb
-  app:
-    build: ./
-    ports:
+#  app:
+#    build: ./
+#    ports:
       - "8080:8080"
 #    environment:
 #      POSTGRES_HOST: db
