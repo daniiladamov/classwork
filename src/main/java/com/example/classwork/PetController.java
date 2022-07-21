@@ -1,10 +1,14 @@
 package com.example.classwork;
 
+import com.example.classwork.entity.Pet;
 import com.example.classwork.service.PetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.Tuple;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,10 +31,25 @@ public class PetController {
         return petService.getFriends(id).toString();
     }
 
-    @GetMapping("/hands")
-    public boolean isTheorticFriends(@RequestParam(name = "frnd1") Long id,@RequestParam(name="frnd2") Long anthId,
-                                    @RequestParam(name="hands") Long hands){
-        return petService.isTheoreticFriedns(id,anthId,hands);
+//    @GetMapping("/hands")
+//    public boolean isTheorticFriends(@RequestParam(name = "frnd1") Long id,@RequestParam(name="frnd2") Long anthId,
+//                                    @RequestParam(name="hands") Long hands){
+//        return petService.isTheoreticFriedns(id,anthId,hands);
+//    }
+
+    /**
+     * Ендпоинт вывода кошек по цветам
+     * @param count ограничение по сортировке (считаются только цвета, которых больше count)
+     * @return список кошек, сгрупированный по цветам, отсортированный в порядке убывания
+     */
+    @GetMapping("/cats")
+    public String getCats(@RequestParam(name = "sort") Long count){
+        return petService.findCatByColor(count).stream().collect(Collectors.joining("\n"));
+    }
+
+    @GetMapping("/max-friends")
+    public Pet getPetWithMaxFriends(){
+        return petService.maxFriends();
     }
 
 }
